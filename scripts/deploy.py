@@ -132,8 +132,8 @@ def main():
     
     run_command("git add -A", "Staging all other changes")
     
-    # Get commit message from user or use default
-    commit_msg = "Deploy: Update site content"
+    # Get commit message from argument or use default
+    commit_msg = sys.argv[1] if len(sys.argv) > 1 else "Deploy: Update site content"
     run_command(f'git commit -m "{commit_msg}"', "Creating commit")
     run_command("git push origin gh-pages", "Pushing to GitHub")
     
