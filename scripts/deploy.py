@@ -125,7 +125,12 @@ def main():
     print("📤 Committing and pushing to GitHub...")
     print("="*60)
     
-    run_command("git add -A", "Staging all changes")
+    # Force add ignored deployment files/folders
+    # Since these are in .gitignore, we must use -f to validly stage them
+    deploy_items = "index.html about products contact industries resources static"
+    run_command(f"git add -f {deploy_items}", "Staging ignored deployment files")
+    
+    run_command("git add -A", "Staging all other changes")
     
     # Get commit message from user or use default
     commit_msg = "Deploy: Update site content"

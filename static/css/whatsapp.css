@@ -1,0 +1,78 @@
+/* === WHATSAPP FLOATING BUTTON === */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6), 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: #20BA5A;
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+/* Pulse animation for WhatsApp button */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: whatsapp-pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 60px;
+        /* Increased from 50px */
+        height: 60px;
+        /* Increased from 50px */
+        bottom: 30px;
+        /* Increased margin from 20px */
+        right: 22px;
+        /* Reduced right margin slightly as requested */
+    }
+
+    .whatsapp-float svg {
+        width: 30px;
+        /* Increased size */
+        height: 30px;
+    }
+}
