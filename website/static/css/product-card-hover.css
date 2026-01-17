@@ -1,0 +1,118 @@
+/* Home Page Product Card Hover Effect - Professional UX */
+
+/* CRITICAL: Remove ALL underlines from card links */
+a.home-product-card,
+a.home-product-card:link,
+a.home-product-card:visited,
+a.home-product-card:hover,
+a.home-product-card:active,
+a.home-product-card:focus {
+    text-decoration: none !important;
+}
+
+a.home-product-card *,
+a.home-product-card *:hover {
+    text-decoration: none !important;
+}
+
+.home-product-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-product-card .card-title,
+.home-product-card .card-title:hover,
+.home-product-card .card-description,
+.home-product-card .card-description:hover {
+    text-decoration: none !important;
+}
+
+/* Stronger selectors for anchor tags */
+.home-product-card a.card-title,
+.home-product-card a.card-title:link,
+.home-product-card a.card-title:visited,
+.home-product-card a.card-title:hover,
+.home-product-card a.card-title:active {
+    text-decoration: none !important;
+}
+
+.home-product-card .card-description a,
+.home-product-card .card-description a:hover {
+    text-decoration: none !important;
+}
+
+.home-product-card .card-title {
+    margin-bottom: var(--space-2);
+    transition: color 0.3s ease;
+}
+
+.home-product-card .card-description {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+/* Hover indicator - Explore Product pill */
+.product-card-hover-indicator {
+    display: none;
+    /* Hidden per user request */
+}
+
+.product-card-hover-indicator span {
+    display: inline-block;
+    color: var(--color-maroon);
+    background: linear-gradient(135deg, var(--color-peach-light) 0%, var(--color-peach) 100%);
+    white-space: nowrap;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(139, 19, 70, 0.2);
+    border: 1px solid rgba(139, 19, 70, 0.15);
+}
+
+/* Card hover state */
+/* Card hover state - Only on devices that support hover */
+@media (hover: hover) {
+    .home-product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .home-product-card:hover .product-card-hover-indicator {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    .home-product-card:hover .card-title {
+        color: var(--color-maroon);
+    }
+
+    /* Add subtle scale to pill on card hover */
+    .home-product-card:hover .product-card-hover-indicator span {
+        animation: subtlePulse 2s ease-in-out infinite;
+    }
+}
+
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}

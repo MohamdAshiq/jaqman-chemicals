@@ -1,0 +1,462 @@
+/* ========================================
+   MODERN HERO SECTION - Premium Light Design
+   Advanced UI/UX Polish
+   ======================================== */
+
+/* Hero Container */
+.hero-modern {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-ivory) 50%, var(--color-off-white) 100%);
+    overflow: hidden;
+}
+
+/* Subtle Background Pattern */
+.hero-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(139, 19, 70, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-modern-container {
+    max-width: 90%;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 0.5rem;
+    align-items: start;
+    padding-top: 20px;
+    min-height: 100vh;
+}
+
+/* Left Content Area with Entrance Animation */
+.hero-modern-content {
+    z-index: 10;
+    padding: var(--space-12) 0;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Premium Badge with Glow */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    background: linear-gradient(135deg, rgba(139, 19, 70, 0.08) 0%, rgba(139, 19, 70, 0.12) 100%);
+    border: 1px solid rgba(139, 19, 70, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--color-maroon);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    /* Increased spacing */
+    box-shadow: 0 4px 20px rgba(139, 19, 70, 0.1);
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.hero-badge::before {
+    content: '●';
+    font-size: 0.5rem;
+    color: var(--color-maroon);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Hero Title with Gradient Accent */
+.hero-modern-title {
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-modern-title span {
+    display: block;
+    background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0.2em;
+}
+
+/* Refined Subtitle */
+.hero-modern-subtitle {
+    font-size: 1rem;
+    /* Reduced to 16px */
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    /* Increased spacing */
+    max-width: 500px;
+    font-weight: 400;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+
+
+/* CTA Group with Arrow Icons */
+.hero-modern-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: 2.5rem;
+    /* Reduced from 4rem */
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Outline removed per user request */
+
+.btn-modern {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accessibility: Focus Visible */
+*:focus-visible {
+    outline: 2px solid var(--color-maroon);
+    outline-offset: 2px;
+}
+
+.btn-modern:hover,
+.btn-modern:focus,
+.btn-modern:active,
+.btn-modern:visited {
+    text-decoration: none !important;
+}
+
+/* Specific fix for hero buttons - ensure no underlines but allow borders */
+a.btn-modern,
+a.btn-modern:hover,
+a.btn-modern:focus,
+a.btn-modern:active,
+a.btn-modern:visited {
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent;
+    /* Reset to allow specific border overrides */
+}
+
+/* Ensure secondary button keeps its border */
+a.btn-modern.btn-modern-secondary {
+    border: 2px solid var(--color-maroon);
+}
+
+.btn-modern-primary {
+    background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-dark) 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 20px rgba(139, 19, 70, 0.25), 0 2px 8px rgba(139, 19, 70, 0.15);
+    text-decoration: none !important;
+}
+
+.btn-modern-primary,
+.btn-modern-primary:hover,
+.btn-modern-primary:focus,
+.btn-modern-primary:active,
+.btn-modern-primary:visited {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.btn-modern-primary::after {
+    content: '→';
+    color: #FFFFFF !important;
+    transition: transform 0.25s ease;
+    margin-left: var(--space-1);
+}
+
+.btn-modern-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 19, 70, 0.35), 0 4px 12px rgba(139, 19, 70, 0.2);
+}
+
+.btn-modern-primary:hover::after {
+    transform: translateX(4px);
+    color: #FFFFFF !important;
+}
+
+.btn-modern-secondary {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--color-maroon);
+    border: 2px solid var(--color-maroon);
+}
+
+.btn-modern-secondary,
+.btn-modern-secondary:link,
+.btn-modern-secondary:visited,
+.btn-modern-secondary:hover,
+.btn-modern-secondary:active,
+.btn-modern-secondary:focus {
+    text-decoration: none !important;
+}
+
+.btn-modern-secondary:hover {
+    background: var(--color-cream);
+    border-color: var(--color-taupe);
+    color: var(--color-charcoal);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Trust Indicators with Animation */
+.hero-trust-indicators {
+    display: flex;
+    gap: var(--space-20);
+    padding-top: var(--space-10);
+    border-top: 1px solid var(--color-beige);
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.trust-item {
+    text-align: left;
+    position: relative;
+}
+
+.trust-item::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--space-6) * -1);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 1px;
+    background: var(--color-beige);
+}
+
+.trust-item:last-child::after {
+    display: none;
+}
+
+.trust-number {
+    font-size: 1.875rem;
+    font-weight: 600;
+    /* Reduced from 800 */
+    color: var(--color-maroon);
+    line-height: 1;
+    margin-bottom: var(--space-1);
+}
+
+.trust-label {
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    /* Tighter letter spacing */
+    font-weight: 600;
+}
+
+/* Right Visual Area - Premium Card */
+.hero-modern-visual {
+    position: relative;
+    height: 580px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: url('../images/hero_modern.webp') center/cover;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.15),
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+    margin-top: 40px;
+}
+
+.hero-modern-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+.hero-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(139, 19, 70, 0.1) 100%);
+    z-index: 2;
+}
+
+/* Floating Decorative Elements */
+.hero-modern::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1200px) {
+    .hero-modern-container {
+        gap: 1.5rem;
+    }
+
+    .hero-modern-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-modern {
+        min-height: auto;
+    }
+
+    .hero-modern-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding-top: var(--space-20);
+        padding-bottom: var(--space-12);
+        min-height: auto;
+    }
+
+    .hero-modern-content {
+        text-align: center;
+        padding: 0;
+    }
+
+    .hero-modern-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-modern-cta {
+        justify-content: center;
+    }
+
+    .hero-trust-indicators {
+        justify-content: center;
+    }
+
+    .trust-item::after {
+        display: none;
+    }
+
+    .hero-modern-visual {
+        display: block;
+        width: 100%;
+        height: 400px;
+        max-width: 600px;
+        margin: var(--space-8) auto 0;
+        border-radius: var(--radius-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-modern-title {
+        font-size: 2.75rem;
+    }
+
+    .hero-modern-subtitle {
+        font-size: 1.0625rem;
+    }
+
+    .hero-modern-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-modern {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+        padding: 0.6rem 1.25rem;
+        /* Refined size for better mobile balance - smaller as requested */
+        font-size: 0.875rem;
+    }
+
+    .hero-trust-indicators {
+        flex-wrap: wrap;
+        gap: var(--space-6);
+    }
+
+    .trust-number {
+        font-size: 1.875rem;
+    }
+
+    .hero-modern-visual {
+        height: 300px;
+        margin-top: var(--space-8);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-modern-title {
+        font-size: 2.375rem;
+    }
+
+    .hero-badge {
+        font-size: 0.6875rem;
+        padding: var(--space-1) var(--space-3);
+        margin-bottom: 2.5rem !important;
+    }
+
+    .hero-modern-visual {
+        height: 260px;
+    }
+}
