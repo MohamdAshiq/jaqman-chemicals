@@ -67,3 +67,7 @@ def contact(request):
         'products': products,
     }
     return render(request, 'contact.html', context)
+
+def handler404(request, exception=None):
+    """Custom 404 page for static site generation."""
+    return render(request, '404.html', status=200)

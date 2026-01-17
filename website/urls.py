@@ -11,6 +11,8 @@ urlpatterns = [
     distill_path('industries/', views.industries_view, name='industries'),
     distill_path('resources/', views.resources, name='resources'),
     distill_path('contact/', views.contact, name='contact'),
+    distill_path('404.html', views.handler404, name='404'),
+
     
     # Dynamic pages (generator required)
     distill_path(

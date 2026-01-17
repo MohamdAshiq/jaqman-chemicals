@@ -66,6 +66,8 @@ Thumbs.db
 # These are created by deploy.py and should not be tracked
 # They are copies of _site/ contents placed at root for GitHub Pages
 /index.html
+/404.html
+
 /about/
 /products/
 /contact/
