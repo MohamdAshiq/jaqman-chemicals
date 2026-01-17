@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    .bg-automotive {
+        background-image: url('{% static "images/automotive_manufacturing_1765779801329.webp" %}');
+    }
+</style>
+{% endblock %}
+
+{% block title %}Jaqman Chemicals - Your Trusted Global Chemical Partner{% endblock %}
+
+{% block content %}
+<!-- Modern Hero Section -->
+<section class="hero-modern">
+    <div class="hero-modern-container">
+        <!-- Left Content Area -->
+        <div class="hero-modern-content">
+            <div class="hero-badge">Trusted Global Chemical Partner</div>
+            <h1 class="hero-modern-title">Premium Chemicals for <span>Global Industries</span></h1>
+            <p class="hero-modern-subtitle">
+                Powering industries worldwide with premium industrial chemicals, solvents and base oils.
+                Quality you can trust, delivered on time, every time.
+            </p>
+
+            <div class="hero-modern-cta">
+                <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn-modern btn-modern-primary">Request a
+                    Quote</a>
+                <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn-modern btn-modern-secondary">Contact Sales
+                    Team</a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="hero-trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-number counter" data-target="500">0</div>
+                    <div class="trust-label">Products</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number counter" data-target="50">0</div>
+                    <div class="trust-label">Countries</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number counter" data-target="99.9">0</div>
+                    <div class="trust-label">On-Time</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Visual Area -->
+        <div class="hero-modern-visual">
+            <div class="hero-visual-overlay"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Why Us</span>
+            <h2 class="section-title">Why Choose <span class="accent">Us</span></h2>
+            <p class="section-subtitle">
+                We combine quality, reliability and customer-focused service to deliver exceptional chemical solutions
+                worldwide.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="card feature-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="feature-icon">🏆</div>
+                <h3 class="card-title">Premium Quality</h3>
+                <p class="card-description">Highest-grade chemicals meeting international standards</p>
+            </div>
+
+            <div class="card feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">🌍</div>
+                <h3 class="card-title">Global Reach</h3>
+                <p class="card-description">Seamless exports to Africa, Middle East and Asia</p>
+            </div>
+
+            <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">💰</div>
+                <h3 class="card-title">Competitive Pricing</h3>
+                <p class="card-description">Bulk shipments tailored to your needs with transparent pricing</p>
+            </div>
+
+            <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">⚡</div>
+                <h3 class="card-title">Timely Delivery</h3>
+                <p class="card-description">Fully compliant, safe and on-time shipments every time</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured <span class="accent">Products</span></h2>
+            <p class="section-subtitle">
+                Explore our premium range of industrial chemicals and solvents
+            </p>
+        </div>
+
+        <div class="grid grid-4 featured-products-grid">
+            {% for product in featured_products %}
+            <a href="{{ SITE_BASE_URL }}{% url 'product_detail' product.slug %}"
+                class="card product-card home-product-card" data-aos="fade-up">
+                {% if product.featured %}
+                <span class="product-card-badge">Featured</span>
+                {% endif %}
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-card-image" loading="lazy">
+                {% else %}
+                <div class="product-card-image"
+                    style="background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-purple) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-3xl); font-weight: 800;">
+                    {{ product.name|slice:":2"|upper }}
+                </div>
+                {% endif %}
+                <h3 class="card-title">{{ product.name }}</h3>
+                <p class="card-description">{{ product.description|truncatewords:25 }}</p>
+                <div class="product-card-hover-indicator">
+                    <span>Explore Product →</span>
+                </div>
+            </a>
+            {% empty %}
+            <p style="grid-column: 1 / -1; text-align: center; color: var(--color-text-secondary);">No featured products
+                available.</p>
+            {% endfor %}
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-12);">
+            <a href="{{ SITE_BASE_URL }}{% url 'products' %}" class="btn btn-primary btn-lg">View All Products</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Global Supply Chain - Automotive Section -->
+<section class="section-parallax industries-parallax-section">
+    <div class="parallax-background bg-automotive"></div>
+    <div class="parallax-overlay"></div>
+    <div class="container relative-z" style="display: flex; justify-content: flex-start; width: 100%;">
+        <div class="parallax-content" style="max-width: 550px; text-align: left; margin-right: auto;">
+            <div class="reveal">
+                <h2 class="parallax-title">
+                    Powering <span class="accent-peach">Industries Worldwide</span>
+                </h2>
+                <p class="parallax-description">
+                    From automotive manufacturing to pharmaceuticals, our industrial chemicals fuel innovation across
+                    diverse sectors. We understand the unique demands of each industry and deliver tailored solutions
+                    that meet exacting specifications.
+                </p>
+                <div class="parallax-actions">
+                    <a href="{{ SITE_BASE_URL }}{% url 'industries' %}" class="btn btn-hero-outline">Explore
+                        Industries</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Client Testimonials Section -->
+<section class="section testimonials-section" data-aos="fade-up"
+    style="background: linear-gradient(to bottom, rgba(250, 247, 240, 0) 0%, rgba(255, 208, 176, 0.03) 50%, rgba(250, 247, 240, 0) 100%);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What Our Clients <span class="accent">Say</span></h2>
+            <p class="section-subtitle">
+                Trusted by businesses worldwide for quality and reliability
+            </p>
+        </div>
+
+        <!-- Testimonials Carousel Container -->
+        <div class="testimonials-carousel-wrapper" style="padding: var(--space-8) 0;">
+            <!-- Left Arrow (Outside Container) -->
+            <button class="testimonial-arrow testimonial-arrow-left" id="testimonial-prev"
+                aria-label="Previous testimonial">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+
+            <!-- Carousel Viewport (Visible Area) -->
+            <div class="testimonials-carousel-viewport">
+                <!-- Carousel Track (Sliding Container) -->
+                <div class="testimonials-carousel-track" id="testimonials-track">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Jaqman Chemicals has been our trusted partner for industrial solvents. Their quality and
+                            reliability are unmatched. Every shipment arrives on time with complete documentation.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_1.webp' %}" alt="Mohammed Al-Rashid"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Mohammed Al-Rashid</div>
+                                <div class="testimonial-role">Procurement Manager, UAE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Excellent service and competitive pricing. They always deliver on time with complete
+                            documentation. Their technical support team is very responsive and helpful.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_2.webp' %}" alt="Sarah Chen"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Sarah Chen</div>
+                                <div class="testimonial-role">Supply Chain Director, Singapore</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Professional team with deep knowledge of chemical trading. Highly recommended for bulk
+                            orders.
+                            They understand our industry needs perfectly.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_3.webp' %}" alt="Adebayo Okonkwo"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Adebayo Okonkwo</div>
+                                <div class="testimonial-role">Operations Head, Nigeria</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Outstanding quality control and consistent supply. They've helped us maintain our production
+                            schedules flawlessly. A truly reliable partner.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_4.webp' %}" alt="Rajesh Kumar"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Rajesh Kumar</div>
+                                <div class="testimonial-role">Plant Manager, India</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Their technical support team is exceptional. They helped us optimize our solvent usage and
+                            reduce costs significantly. Great value for money.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_5.webp' %}" alt="Lisa Martinez"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Lisa Martinez</div>
+                                <div class="testimonial-role">Technical Director, Mexico</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 6 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">
+                            Reliable partner for our pharmaceutical grade solvents. Their compliance documentation is
+                            always
+                            perfect. We trust them completely with our critical supplies.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="{% static 'images/testimonial_6.webp' %}" alt="James O'Brien"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">James O'Brien</div>
+                                <div class="testimonial-role">Quality Manager, Ireland</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Arrow (Outside Container) -->
+            <button class="testimonial-arrow testimonial-arrow-right" id="testimonial-next"
+                aria-label="Next testimonial">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Premium Footer CTA -->
+<section class="section-premium-cta" data-aos="fade-up">
+    <div class="container">
+        <div class="premium-cta-card">
+            <!-- Background Glows -->
+            <div class="cta-glow cta-glow-1"></div>
+            <div class="cta-glow cta-glow-2"></div>
+
+            <div class="cta-content relative-z">
+                <h2 class="cta-title gradient-text-animated">Ready to Transform Your Supply Chain?</h2>
+                <p class="cta-subtitle">
+                    Partner with a global leader in premium chemical solutions.
+                    Quality, reliability, and innovation delivered to your doorstep.
+                </p>
+
+                <div class="cta-action">
+                    <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn-super-cta">
+                        <span class="btn-text">Start Your Order</span>
+                        <span class="btn-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/counter.js' %}"></script>
+<script src="{% static 'js/hero-animation.js' %}"></script>
+<script src="{% static 'js/testimonial-carousel.js' %}"></script>
+{% endblock %}

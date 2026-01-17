@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Jaqman Chemicals{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/css/intlTelInput.css">
+<style>
+    /* Ensure intl-tel-input dropdown fits our form styling */
+    .iti {
+        width: 100%;
+    }
+
+    .iti__flag-container {
+        padding-left: 0;
+    }
+
+    .iti__selected-flag {
+        padding: 0 6px 0 10px;
+    }
+
+    .iti__country-list {
+        max-height: 200px;
+    }
+
+    /* Smaller fonts for country code */
+    .iti__selected-dial-code {
+        font-size: 0.85rem;
+        color: #64748B;
+    }
+
+    .iti__country-name {
+        font-size: 0.85rem;
+    }
+
+    .iti__dial-code {
+        font-size: 0.8rem;
+        color: #94A3B8;
+    }
+
+    .iti__country {
+        padding: 6px 10px;
+    }
+
+    /* Fix Dropdown Positioning & Styling */
+    .iti__dropdown-content {
+        z-index: 9999 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        font-family: 'Inter', sans-serif !important;
+        margin-top: 4px;
+        background: white;
+    }
+
+    /* Style the Search Input inside Dropdown */
+    .iti__search-input {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #CBD5E1;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        margin: 8px 10px !important;
+        /* Adjust margins */
+        width: calc(100% - 20px) !important;
+        /* Fit within padding */
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .iti__search-input:focus {
+        border-color: #14b8a6;
+        /* Teal accent */
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Success Modal Overlay -->
+
+
+<!-- Contact Hero Section - Premium Design -->
+<section class="contact-hero-premium">
+    <div class="contact-hero-bg"></div>
+    <div class="container">
+        <div class="contact-hero-content">
+            <span class="contact-hero-badge">📞 Get in Touch</span>
+            <h1 class="contact-hero-title">Connect with <span class="accent">Jaqman Chemicals</span></h1>
+            <p class="contact-hero-subtitle">
+                Partner with our dedicated team for expert product guidance and global logistics —
+                let us optimize your chemical procurement with personalized support.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Main Contact Section -->
+<section class="section contact-main-section">
+    <div class="container">
+        <div class="contact-premium-grid">
+            <!-- Contact Info Side -->
+            <div class="contact-info-premium">
+                <h2 class="contact-info-title">Let's Start a Conversation</h2>
+                <p class="contact-info-subtitle">Our team is ready to assist you with product inquiries, pricing, and
+                    logistics.</p>
+
+                <div class="contact-cards-stack">
+                    <div class="contact-card-premium">
+                        <div class="contact-card-icon">📧</div>
+                        <div class="contact-card-info">
+                            <h4>Email Us</h4>
+                            <a href="mailto:sales@jaqmanchemicals.com">sales@jaqmanchemicals.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-premium">
+                        <div class="contact-card-icon">📞</div>
+                        <div class="contact-card-info">
+                            <h4>Call Us</h4>
+                            <a href="tel:{{ CONTACT_PHONE|urlencode }}">{{ CONTACT_PHONE }}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-premium">
+                        <div class="contact-card-icon">💬</div>
+                        <div class="contact-card-info">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/{{ WHATSAPP_NUMBER }}">{{ CONTACT_PHONE }}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card-premium">
+                        <div class="contact-card-icon">🕒</div>
+                        <div class="contact-card-info">
+                            <h4>Business Hours</h4>
+                            <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Contact Form Side -->
+            <div class="contact-form-premium">
+                <div class="form-header">
+                    <h3>Send Us an Enquiry</h3>
+                    <p>Fill out the form and we'll get back to you shortly.</p>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                    <!-- Web3Forms Access Key (from .env via context processor) -->
+                    <input type="hidden" name="access_key" value="{{ WEB3FORMS_ACCESS_KEY }}">
+                    <input type="hidden" name="subject" value="New Inquiry from Jaqman Chemicals Website">
+                    <input type="hidden" name="from_name" value="Jaqman Chemicals Contact Form">
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="form-row-premium">
+                        <div class="form-group-premium">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="Full Name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group-premium">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" name="Company Name" placeholder="Company name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-premium">
+                        <div class="form-group-premium">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="Email Address" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group-premium">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="Phone Number" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-premium">
+                        <div class="form-group-premium">
+                            <label for="product">Product of Interest *</label>
+                            <select id="product" name="Product of Interest" required>
+                                <option value="">Select a product</option>
+                                <option value="Acetone">Acetone</option>
+                                <option value="Isopropyl Alcohol (IPA)">Isopropyl Alcohol (IPA)</option>
+                                <option value="Methanol">Methanol</option>
+                                <option value="Ethanol">Ethanol</option>
+                                <option value="Toluene">Toluene</option>
+                                <option value="Xylene">Xylene</option>
+                                <option value="Base Oils">Base Oils</option>
+                                <option value="Other">Other (specify in message)</option>
+                            </select>
+                        </div>
+                        <div class="form-group-premium">
+                            <label for="quantity">Quantity Required *</label>
+                            <input type="text" id="quantity" name="Quantity Required" placeholder="e.g., 1 container"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium full-width">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="Message" placeholder="Tell us about your requirements..." rows="4"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-premium" id="submit-btn">
+                        <span>Submit Enquiry</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize intl-tel-input for phone field
+        const phoneInput = document.getElementById('phone');
+        let iti = null;
+
+        if (phoneInput) {
+            iti = window.intlTelInput(phoneInput, {
+                dropdownContainer: document.body, // Fix positioning by appending to body
+                initialCountry: "in", // Default to India
+                preferredCountries: ["in", "ae", "ng", "ke", "us", "gb", "za"], // Common client countries
+                separateDialCode: true, // Shows dial code in flag area, not input
+                nationalMode: true, // User types national number only (no +91 in field)
+                formatOnDisplay: false, // Don't auto-format (keeps it clean)
+                loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/utils.js"),
+            });
+
+            // Allow only numbers in phone input
+            phoneInput.addEventListener('input', function (e) {
+                this.value = this.value.replace(/[^\d]/g, '');
+            });
+        }
+
+        // Initialize Premium Validation
+        const validationForm = document.getElementById('contact-form');
+        if (validationForm) {
+            setupPremiumValidation(validationForm);
+        }
+
+        // Pre-select product from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const productParam = urlParams.get('product');
+
+        if (productParam) {
+            const productSelect = document.getElementById('product');
+            // Do not double-decode. URLSearchParams.get() handles percent-encoding automatically.
+            // Double decoding crashes on names with % (e.g. "Methanol 99%")
+            const decodedProduct = productParam.trim();
+
+            let found = false;
+            for (let option of productSelect.options) {
+                if (option.value.toLowerCase() === decodedProduct.toLowerCase()) {
+                    option.selected = true;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                // 3rd arg is defaultSelected (false), 4th is selected (true)
+                const newOption = new Option(decodedProduct, decodedProduct, false, true);
+                productSelect.insertBefore(newOption, productSelect.options[productSelect.options.length - 1]);
+            }
+
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                setTimeout(function () {
+                    contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        // AJAX Form Submission with Success Animation
+        // contactForm is already defined above at line 265, so we reuse it.
+        // We also need to get submitBtn and successModal.
+        const submitBtn = document.getElementById('submit-btn');
+        const successModal = document.getElementById('success-modal');
+
+        if (validationForm && iti) {
+            validationForm.addEventListener('submit', function (e) {
+                // 1. Standard HTML5 Validation
+                // If invalid, main.js will intercept, show error, and stop propagation.
+                // However, we double check here to be safe and ensure we stop.
+                if (!this.checkValidity()) {
+                    return;
+                }
+
+                e.preventDefault(); // Stop standard form post
+
+                // 2. Custom Phone Validation
+                if (!iti.isValidNumber()) {
+                    showToast('Please enter a valid international phone number.', 'error');
+                    phoneInput.focus();
+                    // Add error class to phone input wrapper for visual consistency
+                    const group = phoneInput.closest('.form-group-premium');
+                    if (group) group.classList.add('error');
+                    return false;
+                } else {
+                    // Clear phone error if it exists
+                    const group = phoneInput.closest('.form-group-premium');
+                    if (group) group.classList.remove('error');
+                }
+
+                // Get the full phone number with country code
+                const fullPhoneNumber = iti.getNumber();
+                // Check if we have a valid number string
+                if (!fullPhoneNumber) {
+                    showToast('Please enter a valid phone number', 'error');
+                    return;
+                }
+
+                const countryData = iti.getSelectedCountryData();
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Prepare form data
+                // Prepare form data
+                const formData = new FormData(this);
+                // We overwrite the raw 'Phone Number' input with the full international version
+                formData.set('Phone Number', fullPhoneNumber);
+                // Add Country as a new field for clarity
+                formData.set('Country', countryData.name || '');
+
+                // Send to Web3Forms
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Remove loading state
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+
+                        if (data.success) {
+                            // Show success modal
+                            showSuccessModal();
+                            // Reset form
+                            this.reset();
+                            // Explicitly clear product selection if it doesn't clear (for pre-filled cases)
+                            const productSelect = document.getElementById('product');
+                            if (productSelect) productSelect.selectedIndex = 0;
+
+                            // Reset phone input country to default
+                            iti.setCountry('in');
+                        } else {
+                            // Show error from Web3Forms
+                            showToast(data.message || 'Something went wrong. Please try again.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                        showToast('An error occurred. Please try again.', 'error');
+                    });
+            });
+        }
+    });
+
+    // Success Modal Functions
+    function showSuccessModal() {
+        const modal = document.getElementById('success-modal');
+        if (modal) {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeSuccessModal() {
+        const modal = document.getElementById('success-modal');
+        if (modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Close modal on overlay click
+    document.addEventListener('click', function (e) {
+        const modal = document.getElementById('success-modal');
+        if (e.target === modal) {
+            closeSuccessModal();
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeSuccessModal();
+        }
+    });
+</script>
+{% endblock %}
+
+{% block modals %}
+<!-- Success Modal Overlay -->
+<div class="success-modal-overlay" id="success-modal">
+    <div class="success-particles">
+        <div class="success-particle"></div>
+        <div class="success-particle"></div>
+        <div class="success-particle"></div>
+        <div class="success-particle"></div>
+    </div>
+    <div class="success-modal-content">
+        <div class="success-checkmark-wrapper">
+            <div class="success-checkmark-circle">
+                <svg class="success-checkmark-svg" viewBox="0 0 24 24">
+                    <path class="success-checkmark-path" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+        </div>
+        <h2 class="success-title">Thank You! 🎉</h2>
+        <p class="success-message">
+            Your inquiry has been submitted successfully.<br>
+            <strong>We'll reach back to you shortly!</strong>
+        </p>
+        <button class="success-close-btn" onclick="closeSuccessModal()">
+            Done
+        </button>
+    </div>
+</div>
+{% endblock %}

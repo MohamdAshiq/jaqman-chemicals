@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Jaqman Chemicals{% endblock %}
+
+{% block extra_css %}
+<style>
+    .parallax-team-bg {
+        background-image: url("{% static 'images/chemical_plant_workers_1765779751273.webp' %}");
+    }
+
+    .parallax-quality-bg {
+        background-image: url("{% static 'images/quality_control_lab_1765780075056.webp' %}");
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section - Clean Professional Design -->
+<section class="about-hero about-hero-enhanced">
+    <div class="about-hero-background"></div>
+    <!-- Decorative Elements -->
+    <div class="about-hero-orb about-hero-orb-1"></div>
+    <div class="about-hero-orb about-hero-orb-2"></div>
+    <div class="about-hero-orb about-hero-orb-3"></div>
+    <div class="container">
+        <div class="about-hero-content">
+            <div class="section-header">
+                <h1 class="section-title">About <span class="accent">Jaqman Chemicals</span></h1>
+                <p class="section-subtitle">
+                    Connecting Indian Manufacturing Excellence to Global Industries — Delivering quality chemicals,
+                    solvents, and base oils to 50+ countries with unwavering commitment to integrity and excellence.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Company Story Section -->
+<section class="section about-story-section">
+    <div class="container">
+        <div class="about-story-grid">
+            <div class="about-story-visual">
+                <div class="about-story-image">
+                    <img src="{% static 'images/professional_team_working_1765807367198.webp' %}"
+                        alt="Professional Team Collaboration"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-xl);">
+                </div>
+            </div>
+            <div class="about-story-content">
+                <div class="section-header">
+                    <h2 class="section-title">Our <span class="accent">Journey</span></h2>
+                    <p class="section-subtitle">
+                        From vision to global excellence in chemical trading
+                    </p>
+                </div>
+                <p class="about-story-text">
+                    Founded in India, Jaqman Chemicals has evolved into a trusted global supplier of industrial
+                    chemicals,
+                    solvents and base oils. Our journey began with a simple vision: to bridge the gap between Indian
+                    manufacturing excellence and global industrial needs.
+                </p>
+                <p class="about-story-text" style="margin-bottom: var(--space-8);">
+                    Today, we serve industries across 50+ countries, maintaining an extensive network of manufacturers
+                    and international buyers. Every shipment reflects our commitment to quality, consistency, and
+                    compliance.
+                </p>
+
+                <div class="about-story-highlights">
+                    <div class="about-highlight-item">
+                        <div class="about-highlight-icon">🏭</div>
+                        <div class="about-highlight-text">
+                            <strong>Trusted Partnerships</strong>
+                            <p>Leading Indian manufacturers</p>
+                        </div>
+                    </div>
+                    <div class="about-highlight-item">
+                        <div class="about-highlight-icon">🌍</div>
+                        <div class="about-highlight-text">
+                            <strong>Global Reach</strong>
+                            <p>Serving 50+ countries worldwide</p>
+                        </div>
+                    </div>
+                    <div class="about-highlight-item">
+                        <div class="about-highlight-icon">✨</div>
+                        <div class="about-highlight-text">
+                            <strong>Quality Assured</strong>
+                            <p>Premium-grade products only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Section - Netflix Stacked Cards -->
+<section class="section" style="background: transparent;">
+    <div class="container">
+        <div class="mv-grid">
+
+            <!-- Mission Card -->
+            <div class="mv-card-wrapper">
+                <div class="mv-number">01</div>
+                <div class="mv-card">
+                    <div
+                        style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                        <div class="mv-icon">
+                            <span>🎯</span>
+                        </div>
+                        <span
+                            style="font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-teal); font-weight: 600;">Our
+                            Purpose</span>
+                    </div>
+                    <h3
+                        style="font-size: 1.75rem; font-weight: 700; margin-bottom: var(--space-3); color: var(--color-text-primary); letter-spacing: -0.02em;">
+                        Mission
+                    </h3>
+                    <p style="font-size: 0.98rem; line-height: 1.7; color: var(--color-text-secondary);">
+                        To deliver superior-quality chemicals worldwide with unwavering integrity, complete
+                        transparency, and customer-focused excellence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="mv-card-wrapper">
+                <div class="mv-number">02</div>
+                <div class="mv-card">
+                    <div
+                        style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                        <div class="mv-icon">
+                            <span>🚀</span>
+                        </div>
+                        <span
+                            style="font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-purple); font-weight: 600;">Our
+                            Aspiration</span>
+                    </div>
+                    <h3
+                        style="font-size: 1.75rem; font-weight: 700; margin-bottom: var(--space-3); color: var(--color-text-primary); letter-spacing: -0.02em;">
+                        Vision
+                    </h3>
+                    <p style="font-size: 0.98rem; line-height: 1.7; color: var(--color-text-secondary);">
+                        To be the leading multinational chemical trading company, connecting Indian manufacturing
+                        excellence to global industries.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Core Values Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Core <span class="accent">Values</span></h2>
+            <p class="section-subtitle">
+                The principles that guide everything we do
+            </p>
+        </div>
+
+        <div class="about-values-grid">
+            <div class="about-value-card">
+                <div class="about-value-icon-wrapper">
+                    <div class="about-value-icon">🤝</div>
+                </div>
+                <h3 class="about-value-title">Integrity & Transparency</h3>
+                <p class="about-value-description">Honest communication and ethical practices in every transaction</p>
+            </div>
+
+            <div class="about-value-card">
+                <div class="about-value-icon-wrapper">
+                    <div class="about-value-icon">✨</div>
+                </div>
+                <h3 class="about-value-title">Uncompromised Quality</h3>
+                <p class="about-value-description">We consistently deliver dependable, high-quality outcomes.</p>
+            </div>
+
+            <div class="about-value-card">
+                <div class="about-value-icon-wrapper">
+                    <div class="about-value-icon">💼</div>
+                </div>
+                <h3 class="about-value-title">Customer-First Approach</h3>
+                <p class="about-value-description">Your success and satisfaction is always our top priority</p>
+            </div>
+
+            <div class="about-value-card">
+                <div class="about-value-icon-wrapper">
+                    <div class="about-value-icon">🌱</div>
+                </div>
+                <h3 class="about-value-title">Sustainable Partnerships</h3>
+                <p class="about-value-description">Building long-term relationships for shared mutual growth</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quality Control - Parallax Section -->
+<section class="section-parallax" style="padding: var(--space-24) 0;">
+    <div class="parallax-background parallax-quality-bg"></div>
+    <div class="parallax-overlay"></div>
+    <div class="container relative-z" style="display: flex; justify-content: center; width: 100%;">
+        <div class="parallax-content" style="max-width: 800px; text-align: center;">
+            <div class="reveal">
+                <h2 class="parallax-title" style="margin-bottom: var(--space-4);">
+                    Quality <span class="accent-peach">You Can Trust</span>
+                </h2>
+                <p class="parallax-description" style="margin-bottom: var(--space-8);">
+                    Every product undergoes rigorous testing in our state-of-the-art quality control laboratories. We
+                    guarantee COA, MSDS, and all necessary compliance certificates with each shipment.
+                </p>
+                <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn btn-hero-outline">Request Certificates</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="section"
+    style="background: linear-gradient(135deg, var(--color-off-white) 0%, var(--color-cream) 100%);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our <span class="accent">Milestones</span></h2>
+            <p class="section-subtitle">
+                A journey of growth and excellence
+            </p>
+        </div>
+
+        <div class="about-timeline">
+            <!-- Progress line that fills on scroll -->
+            <div class="about-timeline-progress"></div>
+            <div class="about-timeline-item">
+                <div class="about-timeline-marker"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2015</div>
+                    <h4 class="about-timeline-title">Company Founded</h4>
+                    <p class="about-timeline-description">Established in India with a vision to connect local
+                        manufacturers to global markets</p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-marker"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2018</div>
+                    <h4 class="about-timeline-title">Global Expansion</h4>
+                    <p class="about-timeline-description">Expanded operations to serve 25+ countries across Africa,
+                        Middle East, and Asia</p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-marker"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2021</div>
+                    <h4 class="about-timeline-title">500+ Products</h4>
+                    <p class="about-timeline-description">Reached milestone of supplying 500+ chemical products to
+                        diverse industries</p>
+                </div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-marker"></div>
+                <div class="about-timeline-content">
+                    <div class="about-timeline-year">2024</div>
+                    <h4 class="about-timeline-title">Industry Leader</h4>
+                    <p class="about-timeline-description">Recognized as a trusted partner serving 50+ countries with
+                        99.9% client satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Team - Parallax Section -->
+<section class="section-parallax">
+    <div class="parallax-background parallax-team-bg"></div>
+    <div class="parallax-overlay"></div>
+    <div class="container relative-z" style="display: flex; justify-content: center; width: 100%;">
+        <div class="parallax-content" style="max-width: 800px; text-align: center;">
+            <div class="reveal">
+                <h2 class="parallax-title" style="margin-bottom: var(--space-4);">
+                    Dedicated Team, <span class="accent-peach">Global Excellence</span>
+                </h2>
+                <p class="parallax-description" style="margin-bottom: var(--space-8);">
+                    Our experienced professionals work tirelessly to ensure every shipment meets the highest standards
+                    of quality and safety. With decades of combined industry expertise, we're committed to your success.
+                </p>
+                <div style="display: flex; gap: var(--space-8); justify-content: center; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 3rem; font-weight: 800; color: var(--color-peach); margin-bottom: var(--space-2);">
+                            50+</div>
+                        <div style="color: white; font-size: 1rem;">Countries Served</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 3rem; font-weight: 800; color: var(--color-peach); margin-bottom: var(--space-2);">
+                            99.9%</div>
+                        <div style="color: white; font-size: 1rem;">On-Time Delivery</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 3rem; font-weight: 800; color: var(--color-peach); margin-bottom: var(--space-2);">
+                            24/7</div>
+                        <div style="color: white; font-size: 1rem;">Customer Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Premium Footer CTA -->
+<section class="section-premium-cta" data-aos="fade-up">
+    <div class="container">
+        <div class="premium-cta-card">
+            <!-- Background Glows -->
+            <div class="cta-glow cta-glow-1"></div>
+            <div class="cta-glow cta-glow-2"></div>
+
+            <div class="cta-content relative-z">
+                <h2 class="cta-title gradient-text-animated">Ready to Start Your Partnership?</h2>
+                <p class="cta-subtitle">
+                    Join hundreds of satisfied clients worldwide who trust Jaqman Chemicals for their industrial needs.
+                </p>
+
+                <div class="cta-action">
+                    <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn-super-cta">
+                        <span class="btn-text">Contact Us Today</span>
+                        <span class="btn-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/hero-animation.js' %}"></script>
+{% endblock %}

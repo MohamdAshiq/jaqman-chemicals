@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Products - Jaqman Chemicals{% endblock %}
+
+{% block content %}
+<!-- Products Hero Section -->
+<section class="products-hero">
+    <div class="products-hero-background"></div>
+    <div class="products-hero-overlay"></div>
+    <div class="container products-hero-content">
+        <h1 class="products-hero-title">Our Product <span class="accent">Portfolio</span></h1>
+        <p class="products-hero-subtitle">
+            We supply a comprehensive range of industrial chemicals, solvents, and base oils that meet international
+            standards and regulatory compliance.
+        </p>
+        <!-- Search Bar - Fintech Floating Pill -->
+        <div class="product-search-hero" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-search-wrapper">
+                <span class="product-search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </span>
+                <input type="text" id="productSearch" placeholder="Search products, categories or keywords…">
+                <button id="clearInputBtn" class="clear-input-btn" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Grid Section -->
+<section class="section">
+    <div class="container">
+
+        <!-- Animated Placeholder for Grid (Shimmer) - Optional visual cue -->
+
+        <!-- Products Grid -->
+        <div class="grid grid-4 products-grid" id="productsGrid">
+            {% for product in products %}
+            <a href="{{ SITE_BASE_URL }}{% url 'product_detail' product.slug %}"
+                class="card product-card home-product-card" data-aos="fade-up">
+                {% if product.featured %}
+                <span class="product-card-badge">Featured</span>
+                {% endif %}
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-card-image">
+                {% else %}
+                <div class="product-card-image"
+                    style="background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-purple) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--text-3xl); font-weight: 800;">
+                    {{ product.name|slice:":2"|upper }}
+                </div>
+                {% endif %}
+                <h3 class="card-title">{{ product.name }}</h3>
+                <p class="card-description">{{ product.description|truncatewords:25 }}</p>
+                <div class="product-card-hover-indicator">
+                    <span>Explore Product →</span>
+                </div>
+            </a>
+            {% empty %}
+            <!-- Fallback for empty backend list -->
+            <p style="grid-column: 1 / -1; text-align: center;">No products available.</p>
+            {% endfor %}
+        </div>
+
+        <!-- "Emotional" Empty State Card -->
+        <div id="fintechEmptyState" class="fintech-empty-card" style="display: none;">
+            <!-- Background Accent -->
+            <div class="fintech-empty-card-bg"></div>
+
+            <div class="empty-card-visual">
+                <svg class="empty-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+
+            <h3 class="empty-title">No matches found</h3>
+            <p class="empty-subtitle">We couldn’t find any products matching <br>“<span id="noResultsTerm"
+                    class="empty-term"></span>”</p>
+
+            <div class="empty-hints">
+                <span>Check your spelling</span> •
+                <span>Try a different keyword</span>
+            </div>
+
+            <div class="empty-actions">
+                <button id="mainClearBtn" class="btn-pill btn-pill-primary">Search Again</button>
+                <button id="viewAllBtn" class="btn-pill btn-pill-outline">View Full Portfolio</button>
+            </div>
+        </div>
+
+        <!-- Old CTA Removed -->
+    </div>
+    </div>
+</section>
+
+<!-- Premium CTA Section (Standardized) -->
+<section class="section-premium-cta" data-aos="fade-up">
+    <div class="container">
+        <div class="premium-cta-card">
+            <h2 class="cta-title gradient-text-animated">Need a Custom Quote?</h2>
+            <p class="cta-subtitle">Explore the full product catalog or request a tailored quote for your specific
+                needs.</p>
+            <a href="{{ SITE_BASE_URL }}{% url 'contact' %}" class="btn-super-cta">Request a Quote</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('productSearch');
+        const clearInputBtn = document.getElementById('clearInputBtn');
+        const productsGrid = document.getElementById('productsGrid');
+        const cards = productsGrid.getElementsByClassName('product-card');
+        const emptyState = document.getElementById('fintechEmptyState');
+        const termSpan = document.getElementById('noResultsTerm');
+
+        // Buttons
+        const mainClearBtn = document.getElementById('mainClearBtn');
+        const viewAllBtn = document.getElementById('viewAllBtn');
+
+        function performSearch() {
+            const term = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            // Toggle clear button inside input
+            clearInputBtn.style.display = term.length > 0 ? 'flex' : 'none';
+
+            Array.from(cards).forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.card-description').textContent.toLowerCase();
+
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Toggle Empty State
+            if (visibleCount === 0 && term.length > 0) {
+                emptyState.style.display = 'block';
+                productsGrid.style.display = 'none';
+                termSpan.textContent = searchInput.value;
+            } else {
+                emptyState.style.display = 'none';
+                productsGrid.style.display = '';
+            }
+        }
+
+        searchInput.addEventListener('input', performSearch);
+
+        // Action: Search Again (Clear & Focus & Scroll Top)
+        const searchAgainAction = () => {
+            searchInput.value = '';
+            performSearch();
+
+            // Scroll back to search bar for easy typing
+            const yOffset = -150; // Center it nicely
+            const element = document.querySelector('.product-search-hero');
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+
+            // Focus after scroll starts (tiny delay to ensure visibility if needed)
+            setTimeout(() => {
+                searchInput.focus();
+            }, 300);
+        };
+
+        // Action: View Full Portfolio (Clear, Show Grid, Scroll)
+        const viewAllAction = () => {
+            searchInput.value = '';
+            performSearch(); // Resets grid to visible
+            // Tiny timeout to ensure DOM update before scroll
+            setTimeout(() => {
+                const yOffset = -100; // Offset for header/padding
+                const element = productsGrid;
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }, 10);
+        };
+
+        clearInputBtn.addEventListener('click', searchAgainAction);
+        mainClearBtn.addEventListener('click', searchAgainAction);
+        viewAllBtn.addEventListener('click', viewAllAction);
+    });
+</script>
+{% endblock %}
